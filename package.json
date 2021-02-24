@@ -1,42 +1,42 @@
 {
-  "name": "hyperswarm-web",
-  "version": "2.1.1",
-  "description": "Implementation of the hyperswarm API for use in web browsers",
+  "name": "@dswarm/web",
+  "version": "1.0.0",
+  "description": "Implementation of the dSwarm API for use in web browsers.",
   "main": "index.js",
   "scripts": {
     "test": "node test"
   },
   "bin": {
-    "hyperswarm-web": "bin.js"
+    "dswarm-web": "bin.js"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/RangerMauve/hyperswarm-web.git"
+    "url": "https://github.com/"
   },
   "keywords": [
-    "hyperswarm",
+    "dswarm",
     "proxy",
     "web",
     "browser",
     "webrtc"
   ],
-  "author": "rangermauve",
+  "author": "PeepsLabs <peepslabs@gmail.com>",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/RangerMauve/hyperswarm-web/issues"
+    "url": "https://github.com/"
   },
-  "homepage": "https://github.com/RangerMauve/hyperswarm-web#readme",
+  "homepage": "https://dwebx.org",
   "dependencies": {
     "@geut/discovery-swarm-webrtc": "^4.0.1",
     "duplexpair": "^1.0.1",
-    "hyperswarm-proxy-ws": "^1.2.0",
+    "@dswarm/proxy-ws": "^1.0.0",
     "minimist": "^1.2.0",
     "send": "^0.17.1",
     "websocket-stream": "^5.5.2"
   },
   "devDependencies": {
     "get-port": "^5.1.0",
-    "hyperswarm": "^2.4.0",
+    "dswarm": "^1.0.0",
     "tape": "^4.12.1",
     "wrtc": "^0.4.6"
   }
