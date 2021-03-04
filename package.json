@@ -1,7 +1,7 @@
 {
-  "name": "@dswarm/web",
+  "name": "dswarm-web",
   "version": "1.0.0",
-  "description": "Implementation of the dSwarm API for use in web browsers.",
+  "description": "Implementation of the dSwarm API for use in regular web browsers.",
   "main": "index.js",
   "scripts": {
     "test": "node test"
@@ -11,11 +11,12 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/"
+    "url": "https://github.com/dwebprotocol/dswarm-web.git"
   },
   "keywords": [
     "dswarm",
     "proxy",
+    "dweb",
     "web",
     "browser",
     "webrtc"
@@ -23,11 +24,11 @@
   "author": "PeepsLabs <peepslabs@gmail.com>",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/"
+    "url": "https://github.com/dwebprotocol/dswarm-web/issues"
   },
   "homepage": "https://dwebx.org",
   "dependencies": {
-    "@geut/discovery-swarm-webrtc": "^4.0.1",
+    "dweb-discovery-swarm-webrtc": "^1.0.0",
     "duplexpair": "^1.0.1",
     "@dswarm/proxy-ws": "^1.0.0",
     "minimist": "^1.2.0",
