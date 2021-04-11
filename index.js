@@ -1,13 +1,13 @@
 const { EventEmitter } = require('events')
-const webRTCSwarm = require('@geut/discovery-swarm-webrtc')
-const HyperswarmClient = require('hyperswarm-proxy-ws/client')
+const webRTCSwarm = require('@dswarm/discovery-swarm-webrtc')
+const DSwarmClient = require('@dswarm/proxy-ws/client')
 const DuplexPair = require('duplexpair')
 
-const DEFAULT_WEBRTC_BOOTSTRAP = ['wss://geut-webrtc-signal-v3.herokuapp.com', 'wss://signal.dat-web.eu', 'wss://geut-webrtc-signal-v3.glitch.me']
-const DEFAULT_PROXY_SERVER = 'wss://hyperswarm.mauve.moe'
+const DEFAULT_WEBRTC_BOOTSTRAP = ['wss://webrtc.dwebx.net', 'wss://webrtc.peepsx.com', 'wss://webrtc.dsocial.network']
+const DEFAULT_PROXY_SERVER = 'wss://dswarm.mauve.moe'
 
 module.exports = function swarm (opts) {
-  return new HyperswarmWeb(opts)
+  return new DSwarmWeb(opts)
 }
 
 function getBootstrapUrls(path, defaultUrls = [], specificUrls = []) {
@@ -25,7 +25,7 @@ function getBootstrapUrls(path, defaultUrls = [], specificUrls = []) {
   return urls
 }
 
-class HyperswarmWeb extends EventEmitter {
+class DSwarmWeb extends EventEmitter {
   constructor (opts = {}) {
     super()
     const {
@@ -88,7 +88,7 @@ class HyperswarmWeb extends EventEmitter {
     this.isListening = true
 
     this.webrtc = webRTCSwarm(this.webrtcOpts)
-    this.ws = new HyperswarmClient(this.wsOpts)
+    this.ws = new DSwarmClient(this.wsOpts)
 
     this.ws.on('connection', (connection, info) => this._handleWS(connection, info))
     this.webrtc.on('connection', (connection, info) => this._handleWebRTC(connection, info))

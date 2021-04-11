@@ -1,11 +1,11 @@
 
-const HyperswarmProxyWSServer = require('hyperswarm-proxy-ws/server')
-const { SignalServer } = require('@geut/discovery-swarm-webrtc/server')
+const DSwarmProxyWSServer = require('@dswarm/proxy-ws/server')
+const { SignalServer } = require('@dswarm/discovery-swarm-webrtc/server')
 const websocket = require('websocket-stream')
 
 const url = require('url')
 
-class HyperswarmServer extends HyperswarmProxyWSServer {
+class DSwarmServer extends DSwarmProxyWSServer {
   listenOnServer (server) {
     this.server = server
 
@@ -30,4 +30,4 @@ class HyperswarmServer extends HyperswarmProxyWSServer {
   }
 }
 
-module.exports = HyperswarmServer
+module.exports = DSwarmServer

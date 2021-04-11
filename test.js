@@ -1,6 +1,6 @@
-const hyperswarm = require('hyperswarm')
-const HyperswarmServer = require('./server')
-const hyperswarmweb = require('./')
+const dswarm = require('dswarm')
+const DSwarmServer = require('./server')
+const dswarmweb = require('./')
 const test = require('tape')
 const getPort = require('get-port')
 const crypto = require('crypto')
@@ -10,25 +10,25 @@ let server = null
 let port = null
 test('Setup', async function (t) {
   // Initialize local proxy
-  server = new HyperswarmServer()
+  server = new DSwarmServer()
   port = await getPort()
   server.listen(port)
   t.end()
 });
 
-test('Connect to local hyperswarm through local proxy', async (t) => {
+test('Connect to local dswarm through local proxy', async (t) => {
   t.plan(6)
   try {
-    // Initialize local hyperswarm instance, listen for peers
-    const swarm = hyperswarm()
+    // Initialize local dswarm instance, listen for peers
+    const swarm = dswarm()
 
     // Initialize client
     const hostname = `ws://localhost:${port}`
-    const client = hyperswarmweb({
+    const client = dswarmweb({
       bootstrap: [hostname]
     })
 
-    // Test connections in regular hyperswarm
+    // Test connections in regular dswarm
     swarm.once('connection', (connection, info) => {
       t.pass('Got connection locally')
       connection.once('end', () => {
@@ -41,7 +41,7 @@ test('Connect to local hyperswarm through local proxy', async (t) => {
       connection.write('Hello World')
     })
 
-    // Test connections in proxied hyperswarm
+    // Test connections in proxied dswarm
     client.once('connection', (connection) => {
       connection.on('error', () => {
         // Whatever
@@ -68,7 +68,7 @@ test('Connect to local hyperswarm through local proxy', async (t) => {
 
     const key = crypto.randomBytes(32)
 
-    // Join channel on local hyperswarm
+    // Join channel on local dswarm
     swarm.join(key, {
       announce: true,
       lookup: true
@@ -87,13 +87,13 @@ test('Connect to webrtc peers', async (t) => {
   try {
     // Initialize client
     const hostname = `ws://localhost:${port}`
-    const client1 = hyperswarmweb({
+    const client1 = dswarmweb({
       bootstrap: [hostname],
       simplePeer: {
         wrtc
       }
     })
-    const client2 = hyperswarmweb({
+    const client2 = dswarmweb({
       bootstrap: [hostname],
       simplePeer: {
         wrtc
