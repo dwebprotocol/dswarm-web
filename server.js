@@ -1,6 +1,6 @@
 
 const DSwarmProxyWSServer = require('@dswarm/proxy-ws/server')
-const { SignalServer } = require('@dswarm/discovery-swarm-webrtc/server')
+const { SignalServer } = require('dweb-discovery-swarm-webrtc/server')
 const websocket = require('websocket-stream')
 
 const url = require('url')

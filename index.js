@@ -1,5 +1,5 @@
 const { EventEmitter } = require('events')
-const webRTCSwarm = require('@dswarm/discovery-swarm-webrtc')
+const webRTCSwarm = require('dweb-discovery-swarm-webrtc')
 const DSwarmClient = require('@dswarm/proxy-ws/client')
 const DuplexPair = require('duplexpair')
 

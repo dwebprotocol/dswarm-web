@@ -83,7 +83,7 @@ dswarm-web --port 42069
 ```bash
 sudo cat << EOF > /etc/systemd/system/dswarm-web.service
 [Unit]
-Description=Hyperswarm proxy server which webpages can connect to.
+Description=DSwarm proxy server which webpages can connect to.
 
 [Service]
 Type=simple
