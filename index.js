@@ -4,7 +4,7 @@ const DSwarmClient = require('@dswarm/proxy-ws/client')
 const DuplexPair = require('duplexpair')
 
 const DEFAULT_WEBRTC_BOOTSTRAP = ['wss://webrtc.dwebx.net', 'wss://webrtc.peepsx.com', 'wss://webrtc.dsocial.network']
-const DEFAULT_PROXY_SERVER = 'wss://dswarm.mauve.moe'
+const DEFAULT_PROXY_SERVER = 'wss://dswarm.dwebx.net'
 
 module.exports = function swarm (opts) {
   return new DSwarmWeb(opts)
